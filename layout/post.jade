@@ -4,7 +4,8 @@ block title
   title= page.title + " | " + config.title
 
 block main
-  script(src="//storage.googleapis.com/vrview/2.0/build/vrview.min.js")
+
+  include post.gmetri.jade
   // gallery that comes before the header
   if page.photos
      if page.photos.length
