@@ -47,9 +47,10 @@ html
           enable_page_level_ads: true
           });
 
-    include base.gmetri.jade
+    script(src=url_for("https://use.fontawesome.com/4c8c3dc15a.js"))
+    include base.gmetri.head.html
   body
-
+    include base.gmetri.body.html
     // include the sidebar
     // include ./includes/sidebar.jade
 
@@ -89,10 +90,9 @@ html
             = '© ' + year + ' '
             a(href='/', rel='nofollow')= config.author
             = '. Powered by '
-            a(rel='nofollow', target='_blank', href='https://hexo.io') Hexo
-            = '. Theme '
-            a(target='_blank', href='https://github.com/lotabout/very-simple') very-simple
-            |.
+
+            a(class='gmetri-logo gmetri-logo-white', target='_blank', href='http://gmetri.com')
+              div(class='gmetri-logo-block') GMETRI
 
     if theme.fancybox
       link(rel='stylesheet', type='text/css', href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.css")

@@ -21,7 +21,7 @@ block main
 
   .wrapper
     .container.meta
-      .post-time= page.date.format(config.date_format)
+      //.post-time= page.date.format(config.date_format)
       if (page.categories && page.categories.length)
         .post-categories
           != list_categories(page.categories, {show_count: false, class: 'post-category', style: 'none', separator: '>'})

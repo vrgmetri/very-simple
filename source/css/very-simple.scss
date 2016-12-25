@@ -49,12 +49,11 @@ $break-level-5: 980px;
     }
 }
 
-
 body {
+    @extend .black-on-white;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    color: #333;
     font-family: $font-content;
 }
 
@@ -68,20 +67,21 @@ article {
 header {
     padding: 1em 0;
 
-    background: #333;
-    color: #F1F1F1;
+    @extend .white-on-black;
+    background: $back-selected-black;
+    color: $text-selected-white;
 
     .container{
         font-family: $font-blog-title;
         border-bottom: .3em solid #333;
 
         .title {
-            color: #EEE;
+            @extend .white-on-black;
             text-decoration: none;
             font-size: 2.4em;
         }
         .subtitle {
-            color: #aaa;
+            @extend .white-on-black;
             font-size: 1.4em;
             margin-left: 1.2em;
         }
@@ -105,9 +105,9 @@ header {
 
 /* navigation bar */
 nav {
+    @extend .white-on-black;
     top: 0;
     position: sticky;
-    background: #333;
     font-family: $font-mono;
     font-size: 1em;
     z-index: 10;
@@ -122,8 +122,8 @@ nav {
 
     a {
         &, &:visited {
+            @extend .white-on-black;
             text-decoration: none;
-            color: #F1F1F1;
         }
 
         padding: .625em 1.25em;
@@ -184,7 +184,7 @@ nav {
 @media only screen and (max-width: $break-level-2) {
     #toggle-menu {
         display: block;
-        color: #EEE;
+        color: $text-selected-white;
         font-size: 2.2em;
     }
 
@@ -199,16 +199,16 @@ nav {
             display: block;
 
             // style
-            color: #CCC;
-            border-bottom: 1px solid #CCC;
+            color: $text-selected-white;
+            border-bottom: 1px solid $text-selected-white;
 
             &:last-child {
                 border-bottom: none;
             }
 
             &:hover {
-                background: #CCC;
-                color: #333;
+                background: $back-white;
+                color: $text-black;
             }
 
             // disable hover style
@@ -240,7 +240,7 @@ nav {
         position: absolute;
         height: 100%;
         width: 6px;
-        background: #666; // #333 with opacity 0.75
+        background: black; // #333 with opacity 0.75
 
         @media only screen and (max-width: $break-level-4) {
             content: none;
@@ -287,7 +287,7 @@ $post-time-space: 1em;
     font-size: 16px;
     line-height: 1.5;
     margin: 1.5em 0;
-    padding: 0 1.5em;
+    //padding: 0 1.5em;
     position: relative;
     display: flex;
     align-items: center;
@@ -313,7 +313,7 @@ $post-time-space: 1em;
         color: #CCC;
         transition: color .2s ease-in-out;
         white-space: nowrap; // chrome needs this
-        top: 50%; // chrome will need this to center vertically
+        top: calc(0.875rem/2 - 2px); // chrome will need this to center vertically
 
         @media only screen and (max-width: $break-level-4) {
             order: 1;
@@ -326,51 +326,46 @@ $post-time-space: 1em;
             top: auto;
         }
 
-        &::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #666; // #333 with opacity 0.75
-            border-radius: 100%;
-            left: calc(100% + 1rem + #{$vertical-bar-width}/2 - #{$outer-circle-radius});
-            top: calc(50% - #{$outer-circle-radius});
+        //&::before {
+        //    content: '';
+        //    position: absolute;
+        //    width: 20px;
+        //    height: 20px;
+        //    background: #666; // #333 with opacity 0.75
+        //    border-radius: 100%;
+        //    left: calc(100% + 1rem + #{$vertical-bar-width}/2 - #{$outer-circle-radius});
+        //    top: calc(50% - #{$outer-circle-radius});
+        //
+        //    @media only screen and (max-width: $break-level-4) {
+        //        content: none;
+        //        left: calc(-#{$post-time-space} - #{$outer-circle-radius});
+        //    }
+        //
+        //}
 
-            @media only screen and (max-width: $break-level-4) {
-                content: none;
-                left: calc(-#{$post-time-space} - #{$outer-circle-radius});
-            }
 
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: #FCF9E8;
-            border-radius: 100%;
-            transition: background-color .2s ease-in-out;
-            left: calc(100% + 1rem + #{$vertical-bar-width}/2 - #{$inner-circle-radius});
-            top: calc(50% - #{$inner-circle-radius});
-
-            @media only screen and (max-width: $break-level-4) {
-                content: none;
-                left: calc(-#{$post-time-space} - #{$inner-circle-radius});
-            }
-        }
     }
 
-    &:hover {
-        .post-time{
-            //border-bottom: 2px solid $color-underscore;
-            color: #666;
-
-            &::after {
-                background: #A1EFE9;
-            }
-        }
-    }
+    //&:hover {
+    //    .post-time{
+    //        &::after {
+    //            content: '';
+    //            position: absolute;
+    //            width: 16px;
+    //            height: 16px;
+    //            background: white;
+    //            border-radius: 100%;
+    //            transition: background-color .2s ease-in-out;
+    //            left: calc(100% + 1rem + #{$vertical-bar-width}/2 - #{$inner-circle-radius});
+    //            top: calc(50% - #{$inner-circle-radius});
+    //
+    //            @media only screen and (max-width: $break-level-4) {
+    //                content: none;
+    //                left: calc(-#{$post-time-space} - #{$inner-circle-radius});
+    //            }
+    //        }
+    //    }
+    //}
 
     .post-desc {
         flex: 1;
@@ -379,17 +374,20 @@ $post-time-space: 1em;
 
         // style for post-title
         .post-title {
-            border-bottom: 1px solid #EEE;
+            //border-bottom: 1px solid #EEE;
             transition: border-color .2s ease;
             font-weight: 600;
             font-size: 1.2em;
 
             &:hover {
-                border-bottom: 1px solid #666;
+                opacity: 1;
+                border-bottom: .2em dotted;
+                //border-bottom: 1px solid #666;
             }
 
             a {
-                color: #333;
+                @extend .white-on-black;
+                padding-left: calc(2em/1.2);
                 text-decoration: none;
                 border: none;
                 display: block;
@@ -501,9 +499,9 @@ $post-time-space: 1em;
  */
 
 footer#footer {
-    text-align: right;
+    text-align: center;
     margin-top: 2em;
-    background: #333;
+    background: $back-selected-black;
 
     &, & a, & a:visited {
         color: #AAA;
@@ -572,8 +570,8 @@ footer#footer {
     //box-sizing: border-box;
     //padding: 0 20px;
     text-align: right;
-    background: #333;
-    color: #CCC;
+    background: $back-selected-black;
+    color: $text-selected-white;
     border-top: 2px solid #555;
     border-bottom: 2px solid #555;
     display: flex;
@@ -587,7 +585,7 @@ footer#footer {
     }
 
     &:hover {
-        background: #222;
+        background: $back-selected-black;
     }
 
     .post-time {
@@ -642,6 +640,8 @@ footer#footer {
 
 
 article {
+    @extend .gmetri-link;
+
     /* global */
     font-size: 18px;
     line-height: 1.75;
@@ -671,22 +671,6 @@ article {
     hr {
         border-top: 3px dashed #878787;
         border-bottom: none;
-    }
-
-    // link
-    a {
-        color: $color-main-link;
-        text-decoration: none;
-        opacity: 0.9;
-
-        transition: border .2s;
-        transition: color .2s;
-        border-bottom: .08em solid lightgray;
-        &:hover {
-            opacity: 1;
-            border-bottom: .08em solid $color-main-link-hover;
-            color: $color-main-link-hover;
-        }
     }
 
     // ignore border-bottom for code blocks
@@ -772,8 +756,9 @@ article {
 
     // inline code
     code {
-        border: 1px solid #BBB;
-        background: #EEE;
+        border: 1px solid $text-selected-white;
+        color: $text-selected-white;
+        background: $back-selected-black;
         font-size: 14px;
     }
 
@@ -786,8 +771,8 @@ article {
 
         th {
             text-align: left;
-            background: #333;
-            color: #EEE;
+            background: $back-selected-black;
+            color: $text-selected-white;
         }
 
         th, td {
@@ -876,8 +861,8 @@ article {
                 }
 
                 &:hover {
-                    background: #666;
-                    color: #EEE;
+                    background: $back-selected-black;
+                    color: $text-selected-white;
                 }
             }
         }

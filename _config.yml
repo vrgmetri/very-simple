@@ -1,8 +1,19 @@
 # Header
 menu:
   ## If your site is put in a subdirectory, set Home as '/child/'
-  Home: /
-  Archives: archives
+  Home:
+    text:
+    fa: home
+    link: /
+  Archives:
+    text:
+    fa: archive
+    link: archives
+  About:
+    text:
+    fa: user
+    link: about
+
 
 social:
   email:
@@ -17,5 +28,5 @@ fancybox: true # set to true if you want to use it
 
 duoshuo: #duoshuo_shortname
 disqus: #disqus _shortname
-google_analytics: #Google Analytics Tracking Code
+google_analytics: #UA-89421276-1
 google_adsense_page_level_ads: #Google Adsense Page Level Ads Code

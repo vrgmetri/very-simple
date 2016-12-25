@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Logo Example</title>
+</head>
+<body>
+<!-- Combined deffered loading of https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
+with asynchronous load of webfontloader: https://github.com/typekit/webfontloader
+-->
+<script>
+    WebFontConfig = {
+        google: {
+            families: ['Montserrat:700', 'Lato:300,400,400i,700', 'Source+Code+Pro']
+        },
+        custom: {
+            families: ['GlacialIndifference'],
+            urls: ['https://cdn-static.vrgmetri.com/logo/font/gmetri-gi-all-font.css']
+        }
+    };
+    var loadDeferredStyles = function() {
+        (function(d) {
+            var wf = d.createElement('script'), s = d.scripts[0];
+            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js';
+            s.parentNode.insertBefore(wf, s);
+        })(document);
+    };
+    var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+    else window.addEventListener('load', loadDeferredStyles);
+</script>
+<style>
+    body {
+        background-color: lightgray;
+        font-size: 3em;
+    }
+
+    /*Logo CSS*/
+    a.gmetri-logo {
+        padding-left: .2em;
+    }
+    a.gmetri-logo .gmetri-logo-block {
+        display: inline-block;
+        font-family: GlacialIndifference;
+        font-weight: 500;
+        font-size: 1em;
+        letter-spacing: 0.2em;
+        text-decoration: none;
+    }
+    a.gmetri-logo .gmetri-logo-block::first-letter {
+         font-weight:400;
+    }
+
+    /*Logo CSS black on white theme*/
+    a.gmetri-logo-white {
+        background-color: white;
+    }
+    a.gmetri-logo-white .gmetri-logo-block {
+        color: black;
+    }
+    a.gmetri-logo-white .gmetri-logo-block::first-letter {
+        color: gray;
+    }
+
+    /*Logo CSS white on black theme*/
+    a.gmetri-logo-black {
+        background-color: black;
+    }
+    a.gmetri-logo-black .gmetri-logo-block {
+        color: white;
+    }
+    a.gmetri-logo-black .gmetri-logo-block::first-letter {
+        color: gray;
+    }
+</style>
+<!--
+/*Logo CSS*/
+a.gmetri-logo {
+  padding-left: .2em;
+  .gmetri-logo-block {
+    display: inline-block;
+    font-family: GlacialIndifference;
+    font-weight: 500;
+    font-size: 1em;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    &::first-letter {
+      font-weight:400;
+    }
+  }
+}
+
+/*Logo CSS black on white theme*/
+a.gmetri-logo-white {
+  background-color: white;
+  .gmetri-logo-block {
+    color: black;
+    &::first-letter {
+      color: gray;
+    }
+  }
+}
+
+/*Logo CSS black on white theme*/
+a.gmetri-logo-black {
+  background-color: black;
+  .gmetri-logo-block {
+    color: white;
+    &::first-letter {
+      color: gray;
+    }
+  }
+}
+-->
+<div style="background-color:black;height:75px;padding:10px;">
+    <a target="_blank" href="http://gmetri.com" class="gmetri-logo gmetri-logo-white"><div class="gmetri-logo-block">GMETRI</div></a>
+</div>
+<div style="background-color:white;height:75px;padding:10px;">
+    <a target="_blank" href="http://gmetri.com" class="gmetri-logo gmetri-logo-black"><div class="gmetri-logo-block">GMETRI</div></a>
+</div>
+</body>
+
+</html>

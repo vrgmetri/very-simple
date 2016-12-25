@@ -7,3 +7,82 @@ $font-blog-title: Montserrat, "Comic Sans MS", cursive, LiSu, sans-serif;
 $font-post-title: Montserrat, "Titillium Web","Helvetica Neue",Helvetica, Arial,"Microsoft Yahei",sans-serif;
 $font-header: Montserrat, 'Helvetica Neue', "Microsoft Yahei","微软雅黑", "WenQuanYi Micro Hei", SimHei, Heiti, Impact, Charcoal, serif;
 $font-content: Lato, Helvetica, Tahoma, Arial, STXihei, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Heiti, ubuntu, sans-serif;
+
+$text-black: #000;
+$back-white: #FFF;
+$text-selected-white: #FFF;
+$back-selected-black: #000;
+
+.black-on-white {
+  color: $text-black;
+  background: $back-white;
+}
+
+.white-on-black {
+  color: $text-selected-white;
+  background: $back-selected-black;
+}
+
+// colors
+$color-background: white;
+$color-border: #CCC;
+$color-link: blue;
+$color-near-white: #FAFAFA;
+$color-underscore: #5DB1B4;
+$color-main-link: #368CCB;
+$color-main-link-hover: #2A64C8;
+
+/*Logo CSS*/
+a.gmetri-logo {
+  padding-left: .2em;
+  .gmetri-logo-block {
+    display: inline-block;
+    font-family: GlacialIndifference;
+    font-weight: 500;
+    font-size: 1em;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    &::first-letter {
+      font-weight:400;
+    }
+  }
+}
+
+/*Logo CSS black on white theme*/
+a.gmetri-logo-white {
+  background-color: white;
+  .gmetri-logo-block {
+    color: black;
+    &::first-letter {
+      color: gray;
+    }
+  }
+}
+
+/*Logo CSS black on white theme*/
+a.gmetri-logo-black {
+  background-color: black;
+  .gmetri-logo-block {
+    color: white;
+    &::first-letter {
+      color: gray;
+    }
+  }
+}
+
+// link
+.gmetri-link {
+  a {
+    &:not(.headerlink) {
+      @extend .white-on-black;
+      padding-top: 0.2em;
+      padding-bottom: 0.1em;
+    }
+    text-decoration: none;
+    transition: border .05s;
+    &:hover {
+      opacity: 1;
+      border-bottom: .1em dotted lightgray;
+    }
+  }
+}

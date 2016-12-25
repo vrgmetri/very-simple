@@ -1,11 +1,13 @@
 mixin a_with_current(href, content)
-  - var url = url_for(href)
-  if (href == config.root && (is_home() || is_post())) || is_current(href)
+  - var url = url_for(href.link)
+  if (href.link == config.root && (is_home() || is_post())) || is_current(href.link)
     a.sidebar-nav-item.active(href=url)
-      = content
+      i(class='fa fa-' + href.fa + ' fa-lg')
+        = __(href.text)
   else
     a.sidebar-nav-item(href=url)
-      = content
+      i(class='fa fa-' + href.fa + ' fa-lg')
+        = __(href.text)
 
 mixin social_icon(type, website, icon)
   if ((config.social && config.social[type]) || (theme.social && theme.social[type]))
