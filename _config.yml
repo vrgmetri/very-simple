@@ -5,10 +5,10 @@ menu:
     text:
     fa: home
     link: /
-  Archives:
-    text:
-    fa: archive
-    link: archives
+#  Archives:
+#    text:
+#    fa: archive
+#    link: archives
   About:
     text:
     fa: user
